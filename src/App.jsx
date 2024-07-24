@@ -4,12 +4,19 @@ import FriendsList from "./FriendsList";
 import FormAddFriend from "./FormAddFriend";
 import Button from "./Button";
 import FormSplitBill from "./FormSplitBill";
+import { initialFriends } from "../public/friends";
 
 function App() {
   const [showAddFriend, setshowAddFriend] = useState(false);
+  const [friends, setFriends] = useState(initialFriends);
 
-  const handleShhowAddFriend = () => {
+  const handleShowAddFriend = () => {
     setshowAddFriend((show) => !show);
+  };
+
+  const handleAddFriend = (friend) => {
+    setFriends((friends) => [...friends, friend]);
+    setshowAddFriend(false); //hides form after adding a friend
   };
 
   return (
@@ -18,9 +25,9 @@ function App() {
 
       <div className="app">
         <div className="sidebar">
-          <FriendsList />
-          {showAddFriend && <FormAddFriend />}
-          <Button onClick={handleShhowAddFriend}>
+          <FriendsList friends={friends} />
+          {showAddFriend && <FormAddFriend onAddFriend={handleAddFriend} />}
+          <Button onClick={handleShowAddFriend}>
             {showAddFriend ? "Close" : "Add friend"}
           </Button>
         </div>

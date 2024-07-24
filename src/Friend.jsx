@@ -4,7 +4,7 @@ function Friend({ friend }) {
   return (
     <div>
       <li>
-        <img src={friend.img} alt={friend.name} />
+        <img src={friend.image} alt={friend.name} />
         <h3>
           {friend.name} ${Math.abs(friend.balance)}
         </h3>

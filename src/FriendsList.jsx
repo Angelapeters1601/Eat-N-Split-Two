@@ -1,9 +1,6 @@
-import { initialFriends } from "../public/friends.js";
 import Friend from "./Friend.jsx";
 
-function FriendsList() {
-  const friends = initialFriends;
-
+function FriendsList({ friends }) {
   return (
     <div>
       <ul>
