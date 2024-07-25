@@ -28,6 +28,7 @@ function FormAddFriend({ onAddFriend }) {
       <input
         type="text"
         value={name}
+        id="name"
         onChange={(e) => setName(e.target.value)}
       />
 
@@ -35,6 +36,7 @@ function FormAddFriend({ onAddFriend }) {
       <input
         type="text"
         value={image}
+        id="image"
         onChange={(e) => setImage(e.target.value)}
       />
 
