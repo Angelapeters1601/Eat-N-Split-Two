@@ -27,6 +27,17 @@ function App() {
     setShowAddFriend(false); //closes add friend form if a friend is selected
   };
 
+  const handleSplitBill = (value) => {
+    setFriends(
+      friends.map((friend) =>
+        friend.id === selectedFriend.id
+          ? { ...friend, balance: friend.balance + value }
+          : friend
+      )
+    );
+    setSelectedFriend(null);
+  };
+
   return (
     <>
       <h1 className="app-title">Eat-'N-Split App</h1>
@@ -46,7 +57,12 @@ function App() {
           </Button>
         </div>
 
-        {selectedFriend && <FormSplitBill selectedFriend={selectedFriend} />}
+        {selectedFriend && (
+          <FormSplitBill
+            selectedFriend={selectedFriend}
+            onSplitBill={handleSplitBill}
+          />
+        )}
       </div>
     </>
   );
